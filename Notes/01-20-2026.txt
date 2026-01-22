@@ -3,7 +3,7 @@ tables store data,
 views present query results, 
 stored procedures automate operations, 
 and functions return reusable values.
-
+---------------------------------------
 SQl commands:
 
 DDL – Data Definition Language
@@ -30,10 +30,27 @@ TCL – Transaction Control Language
 Used to manage database transactions.
 Commands: COMMIT, ROLLBACK, SAVEPOINT
 Example: ensuring data consistency
-
+-----------------------------------------
 Primary Key: A primary key is a column (or set of columns) that uniquely identifies each row in a table.
 Foreign Key: A foreign key is a column in one table that refers to the primary key of another table.
-
+-------------------------------------
+Constraints in SQl:
+1. NOT NULL
+Ensures a column cannot be empty.
+2. UNIQUE
+Ensures no duplicate values in a column.
+3. PRIMARY KEY
+Uniquely identifies each row
+Automatically NOT NULL + UNIQUE
+4. FOREIGN KEY
+Creates a relationship between tables.
+Ensures values exist in the parent table.
+Used to maintain referential integrity.
+5. CHECK
+Allows only values that meet a condition.
+6. DEFAULT
+Sets a default value if none is provided.
+-------------------------------------------------
 TRUNCATE vs DELETE vs DROP
 DELETE
 Removes selected rows (can use WHERE)
