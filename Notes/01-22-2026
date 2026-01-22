@@ -1,1 +1,101 @@
+Can Table have more than one primary key?
+A table can have only one primary key, but that primary key can be composite, meaning it can include multiple columns.
+Composite (or Compound) Primary Key — Allowed
+A single primary key made of multiple columns is allowed.
+This is still one primary key, just using more than one column.
+Example:-
+CREATE TABLE enrollments (
+  student_id INT,
+  course_id INT,
+  enroll_date DATE,
+  PRIMARY KEY (student_id, course_id)
+);
+-----------------------------------
+Distinct: used to remove duplicate rows from the result set and return only unique values.
+Example:-
+SELECT DISTINCT department
+FROM employees;
+
+-If there are multiple columns uniqueness is checked on the combination of columns, not individually.
+Example:- 
+SELECT DISTINCT department, job_title
+FROM employees;
+Result contains only one hr and manager
+HR, Manager
+HR, Analyst
+HR, Manager  ---duplicate row
+
+DISTINCT with COUNT:-
+SELECT COUNT(DISTINCT department)
+FROM employees;
+Counts how many unique departments exist.
+
+DISTINCT with NULLs:-
+Multiple NULL values are treated as one
+If many rows have NULL, only one NULL appears.
+Distinct Vs Group by :-These two are similar but not the same
+DISTINCT
+SELECT DISTINCT department
+FROM employees;
+GROUP BY
+SELECT department
+FROM employees
+GROUP BY department;
+Same result here
+GROUP BY is better when using aggregates like SUM, AVG, etc.
+---------------------------------------------
+Count: An aggregate function used to count rows.
+1.	Count(*)- counts all rows including nulls
+2.	Count(col_name)- Counts non-NULL values in that column.
+3.	Count(Distinct col_name)- Counts unique, non-NULL values.
+4.	Count with multiple columns are not allowed but COUNT(DISTINCT col1, col2) is allowed. It counts unique combination of col1 and col2.
+Limit: used to restrict the number of rows returned by a query.
+LIMIT with OFFSET:- 
+SELECT *
+FROM employees
+LIMIT 5 OFFSET 10;
+Meaning:
+•	Skip first 10 rows
+•	Return next 5 rows
+-----------------------------------------------------------
+SQl operators: 
+•	Arithmetic → + - * / %
+•	Comparison → =, !=, <, >, <=, >=
+•	Logical → AND, OR, NOT
+•	Special → IN, BETWEEN, LIKE, IS NULL, EXISTS
+------------------------------------------
+Group by and Having:
+GROUP BY
+•	Purpose: Aggregate rows based on one or more columns.
+•	Used with: Aggregate functions like COUNT(), SUM(), AVG(), MAX(), MIN().
+Example:
+SELECT department, COUNT(*) AS total_employees
+FROM employees
+GROUP BY department;
+Result: Number of employees per department.
+HAVING
+•	Purpose: Filter groups after aggregation.
+•	Difference with WHERE:
+o	WHERE filters rows before aggregation
+o	HAVING filters groups after aggregation
+Example:
+SELECT department, COUNT(*) AS total_employees
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 10;
+Result: Only departments with more than 10 employees.
+Difference between where clause and having:
+Feature	WHERE	HAVING
+Purpose	 Filters rows before grouping	       Filters groups after grouping
+Used with	 Columns (no aggregates)	      Aggregate functions (SUM, COUNT…)
+Executed	 Before GROUP BY	      After GROUP BY
+Example	 WHERE salary > 30000	   HAVING COUNT(*) > 10.  
+WHERE → row filter, HAVING → group filter
+
+
+
+
+
+
+
 
