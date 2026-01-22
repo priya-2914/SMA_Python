@@ -1,0 +1,52 @@
+Schemas organize database objects, 
+tables store data, 
+views present query results, 
+stored procedures automate operations, 
+and functions return reusable values.
+
+SQl commands:
+
+DDL – Data Definition Language
+Used to define and modify database structures.
+Commands: CREATE, ALTER, DROP, TRUNCATE
+Example: creating or changing tables
+
+DML – Data Manipulation Language
+Used to insert, update, and delete data in tables.
+Commands: INSERT, UPDATE, DELETE
+Example: modifying table records
+
+DQL – Data Query Language
+Used to retrieve data from the database.
+Command: SELECT
+Example: fetching records for analysis
+
+DCL – Data Control Language
+Used to control access and permissions.
+Commands: GRANT, REVOKE
+Example: giving users read/write access
+
+TCL – Transaction Control Language
+Used to manage database transactions.
+Commands: COMMIT, ROLLBACK, SAVEPOINT
+Example: ensuring data consistency
+
+Primary Key: A primary key is a column (or set of columns) that uniquely identifies each row in a table.
+Foreign Key: A foreign key is a column in one table that refers to the primary key of another table.
+
+TRUNCATE vs DELETE vs DROP
+DELETE
+Removes selected rows (can use WHERE)
+Can be rolled back
+Table structure remains
+
+TRUNCATE
+Removes all rows from a table
+Cannot use WHERE
+Faster than DELETE
+Table structure remains
+
+DROP
+Removes the entire table
+Data and structure are deleted
+Cannot be rolled back

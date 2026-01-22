@@ -1,0 +1,56 @@
+Data - Content Without any  meaning
+Information - Data with meaning 
+Data Governance - It’s a set of rules, processes, and responsibilities that make sure data is accurate, secure, consistent, and used the right way.
+-Types of data and examples:-
+1. Structured Data - data in rows and columns used in Machine learning
+2. Unstructured data -pdf,images- Deep learnig applications
+3. Semi-Structured Data - json files
+
+ETL and ELT:-
+Both ETL and ELT are ways to move and prepare data for analysis.
+The difference is when the data is transformed.
+
+ETL (Extract → Transform → Load)
+What it means:
+Data is cleaned and transformed first, then loaded into the target system.
+Flow
+Extract – get data from sources (databases, APIs, files)
+Transform – clean, filter, aggregate, apply business rules
+Load – store the final data in a data warehouse
+
+When ETL is used
+Traditional data warehouses
+When target systems have limited compute power
+When only clean, structured data should be stored
+Example
+Raw sales data → remove duplicates → convert currency → load into warehouse
+
+ELT (Extract → Load → Transform)
+What it means:
+Raw data is loaded first, then transformed inside the target system.
+Flow
+Extract – get data from sources
+Load – load raw data into the warehouse or data lake
+Transform – clean and process data using warehouse tools
+
+When ELT is used
+Cloud data warehouses (Snowflake, BigQuery, Redshift)
+Large volumes of data
+When flexibility and scalability are needed
+Example
+Raw sales data → load into Snowflake → SQL transforms inside Snowflake
+
+Bronze, Silver, Gold layers:-
+They are layers in a data architecture (mostly used in ELT, but can exist with ETL too) that organize data from raw → refined → business-ready.
+- Bronze Layer (Raw Data):- First landing zone for data
+Raw, unprocessed data
+Same format as source system
+- Silver Layer (Cleaned & Enriched Data) :-
+Cleaned and standardized data
+Structured and reliable
+- Gold Layer (Business-Ready Data) :-
+Final, analytics-ready data
+Aggregated and optimized
+
+-A CI/CD pipeline automates code integration, testing, and deployment to ensure fast, reliable, and consistent releases.
+
