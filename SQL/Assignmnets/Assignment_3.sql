@@ -48,11 +48,13 @@ WHERE NOT EXISTS (
 );
 
 -- 6. Display the customers who rented films in the same month as customer with ID 5.
-select * from customer
-
-select customer_id,month(rental_date) from rental
-group by customer_id,month(rental_date) 
-having customer_id=5
+select * from sakila.customer
+where customer_id in (
+select customer_id from sakila.rental
+where month(rental_date) in (
+SELECT DISTINCT MONTH(rental_date)
+FROM sakila.rental
+WHERE customer_id = 5))
 
 -- 7. Find all staff members who handled a payment greater than the average payment amount.
 select * from staff
